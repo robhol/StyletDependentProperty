@@ -1,11 +1,12 @@
 namespace StyletDependentProperty
 {
     using System;
+    using System.ComponentModel;
     using System.Linq.Expressions;
 
     internal class DependencyBuilder<TDependencyViewModel, TDependencyProperty, TSelf> : IDependentPropertyLocator<TSelf>
         where TSelf : IDependencyRegistrar
-        where TDependencyViewModel : DependentPropertyChangedBase
+        where TDependencyViewModel : class, INotifyPropertyChanged
     {
         private readonly Expression<Func<TDependencyViewModel, TDependencyProperty>> _dependencyLocator;
         private readonly TDependencyViewModel _dependencyViewModel;

@@ -1,6 +1,7 @@
 namespace StyletDependentProperty
 {
     using System;
+    using System.ComponentModel;
     using System.Linq.Expressions;
     using Stylet;
 
@@ -10,6 +11,6 @@ namespace StyletDependentProperty
             TDependencyViewModel dependencyViewModel,
             Expression<Func<TDependencyViewModel, TDependencyProperty>> dependencyLocator,
             Expression<Func<TDependentProperty>> dependentLocator)
-            where TDependencyViewModel : PropertyChangedBase;
+            where TDependencyViewModel : class, INotifyPropertyChanged;
     }
 }

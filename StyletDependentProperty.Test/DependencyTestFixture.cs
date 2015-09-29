@@ -1,13 +1,14 @@
 ﻿namespace StyletDependentProperty.Test
 {
     using System;
+    using System.ComponentModel;
     using System.Linq.Expressions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     public class DependencyTestFixture
     {
         protected void AssertChange<TDependency, TDependent>(TDependency master, TDependent slave, Expression<Func<TDependent, object>> property, Action when, bool shouldHappen = true)
-            where TDependency : DependentPropertyChangedBase
+            where TDependency : INotifyPropertyChanged
             where TDependent : DependentPropertyChangedBase
         {
             var changed = false;
