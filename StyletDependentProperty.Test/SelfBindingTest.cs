@@ -15,11 +15,33 @@ namespace StyletDependentProperty.Test
         }
 
         [TestMethod]
-        public void UnrelatedSelfProperty()
+        public void FireOnChangeForSelfProperty()
+        {
+            var foo = new Foo("123");
+            var fired = false;
+            foo.OwnValueChangedEvent += () => fired = true;
+            foo.Value = "arbitrary";
+
+            Assert.IsTrue(fired);
+        }
+
+        [TestMethod]
+        public void DoNotBindUnrelatedSelfProperty()
         {
             var foo = new Foo("123");
 
             AssertChange(foo, x => x.UnrelatedValue, () => foo.Value = "arbitrary", false);
+        }
+
+        [TestMethod]
+        public void DoNotFireOnChangeForUnrelatedSelfProperty()
+        {
+            var foo = new Foo("123");
+            var fired = false;
+            foo.OwnValueChangedEvent += () => fired = true;
+            foo.UnrelatedValue = "arbitrary";
+
+            Assert.IsFalse(fired);
         }
 
         [TestMethod]

@@ -16,6 +16,7 @@ namespace StyletDependentProperty.Test.BsClasses
         {
             _value = value;
             DependOn(x => x.Value).For(() => CalculatedValue);
+            OnChange(x => x.Value, () => OwnValueChangedEvent());
 
             ParameterlessAccessorExpression = () => Value;
         }
@@ -31,7 +32,9 @@ namespace StyletDependentProperty.Test.BsClasses
         }
 
         public string CalculatedValue => Value.ToLower();
-        public string UnrelatedValue { get; } = "unrelated";
+        public string UnrelatedValue { get; set; } = "unrelated";
         public Expression<Func<string>> ParameterlessAccessorExpression { get; }
+
+        public event Action OwnValueChangedEvent = () => { ; };
     }
 }
