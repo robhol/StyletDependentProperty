@@ -4,7 +4,7 @@ namespace StyletDependentProperty.Test
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class SelfBindingTest : DependencyTestFixture
+    public class SelfBindingTests : DependencyTestFixture
     {
         [TestMethod]
         public void BindSelfProperty()

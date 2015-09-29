@@ -4,7 +4,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class PlainViewModelBindingTest : DependencyTestFixture
+    public class PlainViewModelBindingTests : DependencyTestFixture
     {
         [TestMethod]
         public void BindPlainViewModelProperty()

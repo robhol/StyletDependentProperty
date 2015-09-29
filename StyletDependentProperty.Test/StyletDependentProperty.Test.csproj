@@ -63,11 +63,11 @@
     <Compile Include="BsClasses\Summation.cs" />
     <Compile Include="DependencyTestFixture.cs" />
     <Compile Include="CrossObjectBindingTests.cs" />
-    <Compile Include="PlainViewModelBindingTest.cs" />
+    <Compile Include="PlainViewModelBindingTests.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="PropertyLambdaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelfBindingTest.cs" />
+    <Compile Include="SelfBindingTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StyletDependentProperty\StyletDependentProperty.csproj">
